@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Домашняя аптека</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
 </head>
 <body>
     <div class="container">
@@ -19,20 +20,31 @@
                 <input type="date" id="expiryDate" placeholder="Срок годности" required>
                 <button type="submit">Добавить</button>
             </form>
+            
+            <!-- Кнопки экспорта/импорта -->
+            <div class="data-controls">
+                <button id="downloadBtn" type="button">📥 Скачать список (JSON)</button>
+                <label style="margin-left: 10px; cursor: pointer;">
+                    📤 Загрузить список (JSON)
+            <input type="file" id="uploadInput" accept=".json" style="display: none;" />
+                </label>
+            </div>
+        </div>
+
+        <!-- Элементы управления сортировкой и фильтром -->
+        <div class="controls">
+            <button id="sortByNameBtn">Сортировать по названию (А–Я)</button>
+            <div class="filter-section">
+                <label for="purposeFilter">Фильтр по назначению:</label>
+                <input type="text" id="purposeFilter" placeholder="Введите ключевое слово...">
+                <button id="clearFilterBtn">Очистить фильтр</button>
+            </div>
         </div>
 
         <!-- Таблица всех лекарств -->
         <div class="table-section">
             <h2>Все лекарства</h2>
             <table id="medicinesTable">
-		<div class="controls">
-    <button id="sortByNameBtn">Сортировать по названию (А–Я)</button>
-    <div class="filter-section">
-        <label for="purposeFilter">Фильтр по назначению:</label>
-        <input type="text" id="purposeFilter" placeholder="Введите ключевое слово...">
-        <button id="clearFilterBtn">Очистить фильтр</button>
-    </div>
-</div>
                 <thead>
                     <tr>
                         <th>Название</th>
