@@ -11,52 +11,68 @@ body {
 }
 
 .container {
-    max-width: 1000px;
-    margin: 20px auto;
-    padding: 20px;
+    max-width: 100%;
+    width: 100%;
+    margin: 10px auto;
+    padding: 15px;
 }
 
 h1 {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     color: #2c3e50;
+    font-size: 1.8rem;
 }
 
 .form-section, .table-section, .expiring-section {
     background: white;
-    padding: 20px;
-    margin-bottom: 20px;
+    padding: 15px;
+    margin-bottom: 15px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 #medicineForm {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
+    grid-template-columns: 1fr;
+    gap: 12px;
     align-items: end;
 }
 
+@media (min-width: 768px) {
+    #medicineForm {
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+    }
+    
+    .container {
+        max-width: 800px;
+        padding: 20px;
+    }
+}
+
 #name, #purpose, #expiryDate {
-    padding: 10px;
+    padding: 12px;
     border: 1px solid #ddd;
     border-radius: 4px;
+    width: 100%;
 }
 
 #purpose {
     grid-column: 1 / -1;
     resize: vertical;
-    min-height: 60px;
+    min-height: 80px;
 }
 
 button {
-    padding: 10px 15px;
+    padding: 12px 16px;
     background-color: #3498db;
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     font-size: 16px;
+    width: 100%;
 }
 
 button:hover {
@@ -67,12 +83,15 @@ table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 10px;
+    overflow-x: auto;
+    display: block;
 }
 
 th, td {
-    padding: 12px;
+    padding: 10px 8px;
     text-align: left;
     border-bottom: 1px solid #ddd;
+    font-size: 14px;
 }
 
 th {
@@ -89,9 +108,10 @@ th {
     background-color: #e74c3c;
     color: white;
     border: none;
-    padding: 5px 10px;
+    padding: 6px 12px;
     border-radius: 3px;
     cursor: pointer;
+    font-size: 14px;
 }
 
 .delete-btn:hover {
@@ -101,7 +121,7 @@ th {
 #expiringList {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
 }
 
 .expiring-item {
@@ -117,30 +137,50 @@ th {
     gap: 10px;
     margin-bottom: 15px;
     align-items: center;
+    flex-direction: column;
 }
 
 .filter-section {
     display: flex;
+    flex-direction: column;
     gap: 10px;
-    align-items: center;
+    width: 100%;
 }
 
 #purposeFilter {
-    padding: 8px;
+    padding: 10px;
     border: 1px solid #ddd;
     border-radius: 4px;
-    width: 200px;
+    width: 100%;
 }
 
 #sortByNameBtn, #clearFilterBtn {
-    padding: 8px 12px;
+    padding: 10px 15px;
     background-color: #27ae60;
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    width: 100%;
 }
 
 #sortByNameBtn:hover, #clearFilterBtn:hover {
     background-color: #219653;
+}
+
+/* Дополнительные стили для мобильных */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+    
+    th, td {
+        padding: 8px 6px;
+        font-size: 13px;
+    }
+    
+    button {
+        padding: 10px 12px;
+        font-size: 14px;
+    }
 }
